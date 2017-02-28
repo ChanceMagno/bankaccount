@@ -8,6 +8,46 @@
     <title></title>
   </head>
   <body>
+    <div class="container">
+      <h1>Bank Account</h1>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form id="register">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="initial">Initial Deposit:</label>
+              <input type="number" class="form-control" id="initial">
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+          <form id="depositWithdraw">
+            <div class="form-group">
+              <label for="deposit">Deposit Amount</label>
+              <input type="number" class="form-control" id="deposit">
+            </div>
+            <div class="form-group">
+              <label for="withdraw">Withdraw Amount:</label>
+              <input type="number" class="form-control" id="withdraw">
+            </div>
+            <button type="submit" class="btn btn-primary">Transfer</button>
+          </form>
 
+        </div>
+      </div>
+      <div class="row">
+        <hr>
+        <div class="col-md-6 col-md-offset-3">
+          <div class="well output">
+            <p>
+
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </body>
 </html>
