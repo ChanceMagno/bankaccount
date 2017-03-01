@@ -1,3 +1,4 @@
+
 // Back-End
 function Account(name, balance) {
   this.name = name;
@@ -13,7 +14,7 @@ Account.prototype.withdraw = function(amount) {
 };
 
 Account.prototype.getBalance = function() {
-  return "Your current balance is: " + this.balance;
+  return "$" + this.balance;
 };
 
 // Front-End
@@ -24,10 +25,15 @@ $(function(){
     var inputName = $("#name").val();
     var inputAmount = parseInt($("#initial").val());
 
-    account = new Account(inputName, inputAmount);
-    $(".output p").text(account.getBalance());
-    $("#depositWithdraw").slideDown();
-    $("#register").slideUp();
+    if (inputName && inputAmount) {
+      $("#error").hide();
+      account = new Account(inputName, inputAmount);
+      $(".output").text(account.getBalance());
+      $("#depositWithdraw").slideDown();
+      $("#register").slideUp();
+    } else {
+      $("#error").show();
+    };
   });
   $("form#depositWithdraw").submit(function(){
     event.preventDefault();
@@ -40,6 +46,10 @@ $(function(){
     if (withdrawl) {
       account.withdraw(withdrawl);
     };
-    $(".output p").text(account.getBalance());
+    if (account.balance < 0) {
+      alert("Sorry, you have overdrawn, you owe " + Math.abs(account.balance) + " Dollar(s)");
+    } else {
+    $(".output").text(account.getBalance());
+    }
   });
 });
